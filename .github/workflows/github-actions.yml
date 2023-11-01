@@ -1,40 +1,9 @@
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main  # Vervang dit door de naam van je hoofdbranch
-
+name: GitHub Actions Demo
+on: [push]
 jobs:
-  build:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 19
-
-      - name: Install Dependencies
-        run: npm install  # Pas dit aan op basis van je project
-
-      - name: Build Project
-        run: npm run build  # Pas dit aan op basis van je project
-
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git checkout main  # Replace "main" with the name of your main branch
-          if git diff-index --quiet HEAD --; then
-            echo "No changes to commit"
-          else
-            git add .
-            git commit -m "Deploy to GitHub Pages"
-            git push
-          fi
-        env:
-          NODE_ENV: production
+      - run: echo "🎉 Good job!“
+      - uses: actions/checkout@v3
+      - run: npm ci
