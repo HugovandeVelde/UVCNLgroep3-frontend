@@ -1,0 +1,1 @@
+<a href="/friends"><i class="fa-solid fa-user-group"></i></a>
